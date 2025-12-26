@@ -43,3 +43,29 @@
   background-color: #5B51A8;
   color: #fff;
 }
+
+/* Header phone styling */
+.header-phone {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.phone-link {
+  color: #ffffff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.phone-link:hover {
+  color: #E6E0FF;
+  text-decoration: none;
+}
+
+/* Make sure it stays clean on mobile */
+@media (max-width: 768px) {
+  .header-phone {
+    display: none;
+  }
+}
