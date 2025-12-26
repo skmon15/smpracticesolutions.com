@@ -69,3 +69,27 @@
     display: none;
   }
 }
+
+/* Mobile Call Button */
+.mobile-call-btn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #6F63C2;
+  color: #ffffff;
+  padding: 14px 22px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+/* Show only on mobile */
+@media (max-width: 768px) {
+  .mobile-call-btn {
+    display: inline-block;
+  }
+}
