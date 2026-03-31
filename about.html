@@ -1,90 +1,669 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About | SM Practice Solutions</title>
-  
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta
+    name="description"
+    content="Learn about SM Practice Solutions and our mission to strengthen revenue integrity through compliance, education, and workflow optimization."
+  />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="preconnect" href="https://images.unsplash.com">
+
   <style>
-    body { font-family: 'Roboto', sans-serif; background-color: #f9f9f9; }
-    h1,h2,h3 { font-family: 'Montserrat', sans-serif; }
-    .navbar { background-color: #1f3a5f; }
-    .navbar-nav .nav-link { color: white; font-weight: 600; }
-    .navbar-nav .nav-link:hover { text-decoration: underline; }
-    .hero { background-color: #e9f0f5; padding: 60px 0; text-align: center; }
-    footer { background: #eeeeee; text-align: center; padding: 20px; margin-top: 20px; }
-    .logo { height: 60px; width: auto; }
-    .section { padding: 40px 0; }
+    .site-header{
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+      background: #ffffff;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    }
+
+    .site-logo{
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .navbar-brand{
+      text-decoration: none;
+      padding: 0;
+      margin-right: 1rem;
+    }
+
+    .navbar{
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      background: #fff;
+    }
+
+    .nav-link{
+      font-weight: 500;
+    }
+
+    .hero-image-wrap,
+    .founder-photo-wrap,
+    .insight-image-wrap {
+      overflow: hidden;
+      border-radius: 1rem;
+    }
+
+    .hero-image,
+    .founder-photo,
+    .insight-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-highlight-card {
+      height: 100%;
+      border: 1px solid rgba(0,0,0,.06);
+      border-radius: 1rem;
+      background: #fff;
+      padding: 1.25rem;
+      box-shadow: 0 8px 24px rgba(16, 24, 40, 0.05);
+    }
+
+    .about-highlight-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      background: rgba(13, 110, 253, .08);
+      color: #0d6efd;
+      margin-bottom: 1rem;
+    }
+
+    .metric-tile {
+      border-radius: 1rem;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: 0 8px 24px rgba(16, 24, 40, 0.05);
+      padding: 1.25rem;
+      height: 100%;
+    }
+
+    .metric-number {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: .35rem;
+      color: #0f172a;
+    }
+
+    .section-soft {
+      background: #f8fafc;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+    }
+
+    .pill-item {
+      display: inline-flex;
+      align-items: center;
+      padding: .5rem .85rem;
+      border-radius: 999px;
+      background: #eef4ff;
+      color: #0f172a;
+      font-size: .95rem;
+      font-weight: 500;
+      border: 1px solid rgba(13,110,253,.12);
+    }
+
+    .service-mini-card {
+      height: 100%;
+      border-radius: 1rem;
+      border: 1px solid rgba(0,0,0,.06);
+      background: #fff;
+      padding: 1.25rem;
+      box-shadow: 0 8px 24px rgba(16, 24, 40, 0.05);
+    }
+
+    .service-mini-card ul {
+      padding-left: 1.1rem;
+      margin-bottom: 0;
+    }
+
+    .service-mini-card li {
+      margin-bottom: .45rem;
+    }
+
+    .cta-panel {
+      border-radius: 1.25rem;
+      padding: 2rem;
+      background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
+      color: #fff;
+      box-shadow: 0 18px 40px rgba(13,110,253,.18);
+    }
+
+    .cta-panel .btn-light {
+      font-weight: 600;
+    }
+
+    .credibility-band {
+      border-top: 1px solid rgba(0,0,0,.06);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+      background: #fff;
+    }
+
+    .credibility-item {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .credibility-label {
+      font-size: .9rem;
+      color: #64748b;
+      margin-bottom: .25rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .credibility-value {
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .founder-credential-list {
+      margin: 0;
+      padding-left: 1rem;
+    }
+
+    .founder-credential-list li {
+      margin-bottom: .45rem;
+    }
+
+    .hipaa-note {
+      max-width: 900px;
+      margin: 0 auto 2rem auto;
+      padding: 1rem 1.25rem;
+      border-radius: 1rem;
+      background: #f8fafc;
+      border: 1px solid rgba(0,0,0,.06);
+    }
+
+    .hipaa-title {
+      font-weight: 700;
+      margin-bottom: .35rem;
+      color: #0f172a;
+    }
+
+    .hipaa-text {
+      margin: 0;
+      color: #64748b;
+      font-size: .95rem;
+    }
+
+    @media (max-width: 991.98px) {
+      .page-title h1 {
+        font-size: 2rem;
+      }
+
+      .site-logo{
+        height: 26px;
+      }
+    }
   </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">
-	 <a class="navbar-brand" href="index.html"><img src="logo.png" class="logo"> </a>
-  
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<header class="site-header">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container container-narrow">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="assets/logo.png" alt="SM Practice Solutions" class="site-logo">
+      </a>
 
-<!-- Hero Section -->
-<section class="hero">
-  <div class="container">
-    <h1>About SM Practice Solutions, LLC</h1>
-    <p class="lead mt-3">Providing organized, reliable, and detail-focused consulting services for healthcare providers and small businesses.</p>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="approach.html">Approach</a></li>
+          <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="contact.html">Schedule a Strategy Consultation</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<section class="page-title">
+  <div class="container container-narrow py-5">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <div class="kicker mb-2">About</div>
+        <h1 class="fw-bold mb-3">Structure, Clarity, and Practical Solutions for Healthcare Organizations</h1>
+        <p class="small-muted mb-4">
+          SM Practice Solutions helps healthcare organizations strengthen revenue integrity, compliance stability,
+          and operational performance through coding expertise, provider education, and workflow optimization.
+        </p>
+        <p class="small-muted mb-4">
+          We focus on identifying the root causes behind denials, documentation risk, and operational inefficiencies,
+          then implementing practical solutions that work in real clinical and revenue cycle workflows.
+        </p>
+        <div class="d-flex flex-wrap gap-2">
+          <a class="btn btn-primary" href="contact.html">Schedule a Strategy Consultation</a>
+          <a class="btn btn-outline-primary" href="services.html">Explore Services</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="hero-image-wrap shadow-sm h-100">
+          <img
+            class="hero-image"
+            src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80"
+            alt="Healthcare professionals reviewing strategy and performance data"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- About Content -->
-<section class="container section">
-  <div class="row">
-    <div class="col-md-12">
-      <h2>Our Mission</h2>
-      <p>
-        SM Practice Solutions,LLC is dedicated to helping healthcare providers, small businesses, and entrepreneurs simplify operations, improve financial clarity, and optimize workflows. Every client receives direct attention, consistent communication, and customized solutions designed for long-term success.
-      </p>
-      <h2>Why Choose Us?</h2>
-      <ul>
-        <li>Expertise in professional fee and inpatient coding</li>
-        <li>Revenue cycle and practice cleanup experience</li>
-		<li>Practical solutions designed for real-world healthcare environments</li>
-		<li>Clear communication and dependable follow-through</li>
-		<li>Structured, detail-driven support that reduces operational risk</li>
-		<li>Compliance-conscious approach aligned with payer, CMS, and documentation standards</li>
-		<li>Deep understanding of healthcare operations, coding, and revenue cycle workflows</li>
-        <li>Reliable, detail-focused support tailored to your needs</li>
-        <li>HIPAA-conscious remote consulting</li>
-		<li>A team of experienced professionals tailored to support a wide range of operational projects</li>. 
-      </ul>
-      <p class="mt-3 text-center">
-        <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
-      </p>
+<section class="credibility-band">
+  <div class="container container-narrow py-3">
+    <div class="row g-3">
+      <div class="col-6 col-lg-3">
+        <div class="credibility-item">
+          <div class="credibility-label">Core Focus</div>
+          <div class="credibility-value">Revenue Integrity</div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="credibility-item">
+          <div class="credibility-label">Specialty</div>
+          <div class="credibility-value">Pro-Fee Coding</div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="credibility-item">
+          <div class="credibility-label">Approach</div>
+          <div class="credibility-value">Compliance-Driven</div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="credibility-item">
+          <div class="credibility-label">Outcome</div>
+          <div class="credibility-value">Practical Improvement</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<footer>
-  © 2025 SM Practice Solutions, LLC. All rights reserved.
+<section class="section">
+  <div class="container container-narrow">
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <div class="card p-4 h-100">
+          <h2 class="fw-bold mb-3">Our Mission</h2>
+          <p class="small-muted">
+            SM Practice Solutions helps healthcare organizations strengthen revenue integrity, coding accuracy,
+            compliance alignment, and operational effectiveness through measurable, workflow-based solutions.
+          </p>
+          <p class="small-muted mb-3">
+            We work to move organizations from reactive fixes to sustainable performance by addressing the operational
+            and documentation issues that commonly drive denials, rework, audit exposure, and missed revenue opportunity.
+          </p>
+
+          <hr class="hr-soft">
+
+          <h3 class="fw-bold mb-3">What We Believe</h3>
+          <ul class="mb-0">
+            <li>Sustainable revenue performance is built through education, accountability, and operational clarity.</li>
+            <li>Most coding issues are not isolated events — they reflect breakdowns in workflow, documentation, or alignment.</li>
+            <li>Effective consulting solutions must work in real-world provider, coder, and revenue cycle environments.</li>
+            <li>Compliance and operational performance should support one another, not compete with one another.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="row g-3 h-100">
+          <div class="col-12">
+            <div class="metric-tile">
+              <div class="metric-number">3</div>
+              <div class="fw-semibold">Core Service Pillars</div>
+              <div class="small-muted">Revenue integrity, compliance support, and workflow optimization.</div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="metric-tile">
+              <div class="metric-number">100%</div>
+              <div class="fw-semibold">Practical Approach</div>
+              <div class="small-muted">Recommendations grounded in real operations, not theory alone.</div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="metric-tile">
+              <div class="metric-number">1:1</div>
+              <div class="fw-semibold">Tailored Engagements</div>
+              <div class="small-muted">Solutions customized to your providers, workflows, specialty mix, and risk profile.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container container-narrow">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <div class="insight-image-wrap shadow-sm">
+          <img
+            class="insight-image"
+            src="https://images.unsplash.com/photo-1580281657527-47a2e78af3a5?auto=format&fit=crop&w=1200&q=80"
+            alt="Healthcare leadership team collaborating in a professional office"
+          />
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="kicker mb-2">Who We Work With</div>
+        <h2 class="fw-bold mb-3">Built for physician groups, specialty practices, and healthcare leaders</h2>
+        <p class="small-muted">
+          SM Practice Solutions partners with healthcare organizations that need structured, compliant solutions
+          to complex coding, documentation, and revenue cycle challenges.
+        </p>
+        <div class="pill-list mt-3">
+          <span class="pill-item">Independent Physician Groups</span>
+          <span class="pill-item">Specialty Practices</span>
+          <span class="pill-item">Hospital-Employed Groups</span>
+          <span class="pill-item">Revenue Cycle Leaders</span>
+          <span class="pill-item">Compliance Teams</span>
+          <span class="pill-item">Multi-Market Health Systems</span>
+        </div>
+        <p class="small-muted mt-3 mb-0">
+          Whether the issue is denials, coding variation, workflow inefficiency, or provider documentation risk,
+          our work is designed to support sustainable improvement — not temporary fixes.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container-narrow">
+    <div class="text-center mb-5">
+      <div class="kicker mb-2">Common Engagement Areas</div>
+      <h2 class="fw-bold mb-2">Focused support where healthcare organizations most often need it</h2>
+      <p class="small-muted mb-0">
+        We help clients identify risk, improve performance, and create clearer operational pathways across coding and revenue cycle workflows.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-xl-3">
+        <div class="service-mini-card">
+          <h3 class="h5 fw-bold mb-3">Revenue Integrity Assessments</h3>
+          <ul>
+            <li>Coding accuracy review</li>
+            <li>Audit risk identification</li>
+            <li>Documentation gap analysis</li>
+            <li>Revenue leakage evaluation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-3">
+        <div class="service-mini-card">
+          <h3 class="h5 fw-bold mb-3">Coding Operations Optimization</h3>
+          <ul>
+            <li>Workflow redesign</li>
+            <li>Productivity improvement planning</li>
+            <li>Staffing model evaluation</li>
+            <li>Vendor oversight support</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-3">
+        <div class="service-mini-card">
+          <h3 class="h5 fw-bold mb-3">Provider Documentation Alignment</h3>
+          <ul>
+            <li>Specialty-specific education</li>
+            <li>Documentation clarity improvement</li>
+            <li>Split/shared workflow alignment</li>
+            <li>Compliance-based guidance</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-3">
+        <div class="service-mini-card">
+          <h3 class="h5 fw-bold mb-3">Denial Root Cause Strategy</h3>
+          <ul>
+            <li>Coding denial trend analysis</li>
+            <li>Preventable write-off review</li>
+            <li>Payer issue identification</li>
+            <li>Corrective action planning</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container container-narrow">
+    <div class="text-center mb-5">
+      <div class="kicker mb-2">Why SM Practice Solutions</div>
+      <h2 class="fw-bold mb-2">A practical consulting partner with operational and compliance depth</h2>
+      <p class="small-muted mb-0">
+        We combine technical coding knowledge with workflow insight, provider education, and revenue cycle awareness.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-xl-3">
+        <div class="about-highlight-card">
+          <div class="about-highlight-icon">01</div>
+          <h3 class="h5 fw-bold">Operationally Grounded</h3>
+          <p class="small-muted mb-0">
+            Recommendations are built around how healthcare teams actually work — not idealized models that fail in practice.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-3">
+        <div class="about-highlight-card">
+          <div class="about-highlight-icon">02</div>
+          <h3 class="h5 fw-bold">Compliance-Focused</h3>
+          <p class="small-muted mb-0">
+            Every improvement strategy is designed with documentation integrity, audit risk, and regulatory alignment in mind.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-3">
+        <div class="about-highlight-card">
+          <div class="about-highlight-icon">03</div>
+          <h3 class="h5 fw-bold">Education-Driven</h3>
+          <p class="small-muted mb-0">
+            Sustainable results happen when providers, coders, and leaders understand the why behind the change.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-3">
+        <div class="about-highlight-card">
+          <div class="about-highlight-icon">04</div>
+          <h3 class="h5 fw-bold">Outcome-Oriented</h3>
+          <p class="small-muted mb-0">
+            We focus on clarity, reduced rework, improved coding performance, and stronger revenue integrity over time.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container-narrow">
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-5">
+        <div class="founder-photo-wrap shadow-sm">
+          <img
+            class="founder-photo"
+            src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1200&q=80"
+            alt="Professional healthcare consultant portrait placeholder"
+          />
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="card p-4">
+          <div class="badge-soft mb-3">Founder &amp; Principal Consultant</div>
+          <h2 class="fw-bold mb-2">Samantha Monette</h2>
+          <div class="small-muted mb-3">
+            Revenue Integrity | Pro-Fee Coding | Compliance | Provider Education | Workflow Optimization
+          </div>
+
+          <p class="small-muted">
+            Samantha Monette is a healthcare revenue integrity and physician coding operations leader with experience
+            across physician practices, healthcare operations, coding and billing workflows, denials management,
+            compliance support, and education-based performance improvement.
+          </p>
+
+          <p class="small-muted">
+            She partners with healthcare organizations to reduce coding risk, improve documentation alignment,
+            strengthen operational workflows, and support more stable revenue performance through practical, measurable solutions.
+          </p>
+
+          <p class="small-muted">
+            Her work centers on helping organizations translate complex coding and compliance challenges into clear action plans
+            that support both financial performance and regulatory stability.
+          </p>
+
+          <hr class="hr-soft">
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <h3 class="h6 fw-bold">Core Expertise</h3>
+              <ul class="founder-credential-list small-muted">
+                <li>Professional Fee Coding</li>
+                <li>Revenue Integrity Support</li>
+                <li>Denial Trend Analysis</li>
+                <li>Documentation Improvement</li>
+                <li>Workflow Redesign</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h3 class="h6 fw-bold">Credentials</h3>
+              <ul class="founder-credential-list small-muted">
+                <li>CPC – Certified Professional Coder (AAPC)</li>
+                <li>CCA – Certified Coding Associate (AHIMA)</li>
+                <li>BA – Healthcare Management</li>
+                <li>AAB – Business Management</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container container-narrow">
+    <div class="text-center mb-4">
+      <div class="kicker mb-2">Experience Across</div>
+      <h2 class="fw-bold mb-2">Focused support across the environments where coding accuracy and compliance matter most</h2>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-sm-6 col-lg-3">
+        <div class="metric-tile text-center">
+          <div class="fw-bold mb-1">Physician Enterprise Groups</div>
+          <div class="small-muted">Structured support for complex provider and coding environments.</div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="metric-tile text-center">
+          <div class="fw-bold mb-1">Specialty Practices</div>
+          <div class="small-muted">Guidance tailored to specialty-specific workflows and documentation risks.</div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="metric-tile text-center">
+          <div class="fw-bold mb-1">Compliance &amp; RCM Teams</div>
+          <div class="small-muted">Cross-functional strategies that support sustainable operational improvement.</div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="metric-tile text-center">
+          <div class="fw-bold mb-1">Healthcare Leadership</div>
+          <div class="small-muted">Executive-facing solutions built around performance, risk, and clarity.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container-narrow">
+    <div class="cta-panel">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+          <div class="kicker text-white-50 mb-2">Let’s Connect</div>
+          <h2 class="fw-bold mb-2">Schedule a strategy consultation</h2>
+          <p class="mb-0 text-white-50">
+            Discuss your organization’s coding, compliance, workflow, or revenue integrity challenges and explore practical next steps.
+          </p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <a class="btn btn-light btn-lg" href="contact.html">Request Consultation</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container container-narrow">
+  <div class="hipaa-note">
+    <div class="hipaa-title">HIPAA-Compliant Remote Services</div>
+    <p class="hipaa-text">
+      All services are HIPAA-compliant and provided remotely. Please do not submit protected health information (PHI)
+      through this website or by email. Secure workflows can be coordinated when needed.
+    </p>
+  </div>
+</div>
+
+<footer class="footer py-4">
+  <div class="container container-narrow d-flex flex-column flex-md-row justify-content-between gap-2">
+    <div class="small-muted">
+      © <span id="yr"></span> SM Practice Solutions. All rights reserved.
+      <br>
+      SM Practice Solutions provides independent advisory services to healthcare organizations seeking practical,
+      compliance-driven improvements in revenue performance.
+    </div>
+    <div class="d-flex gap-3">
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
