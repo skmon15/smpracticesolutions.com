@@ -1,90 +1,417 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact | SM Practice Solutions</title>
-  
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Contact SM Practice Solutions to discuss revenue integrity, coding, denials, compliance, and workflow consulting." />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+
   <style>
-    body { font-family: 'Roboto', sans-serif; background-color: #f9f9f9; }
-    h1,h2,h3 { font-family: 'Montserrat', sans-serif; }
-    .navbar { background-color: #1f3a5f; }
-    .navbar-nav .nav-link { color: white; font-weight: 600; }
-    .navbar-nav .nav-link:hover { text-decoration: underline; }
-    .hero { background-color: #e9f0f5; padding: 60px 0; text-align: center; }
-    footer { background: #eeeeee; text-align: center; padding: 20px; margin-top: 20px; }
-    .logo { height: 60px; width: auto; }
-    .section { padding: 40px 0; }
+    .site-header{
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+      background: #ffffff;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    }
+
+    .site-logo{
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    .navbar-brand{
+      text-decoration: none;
+      padding: 0;
+      margin-right: 1rem;
+    }
+
+    .navbar{
+      padding-top: 0.9rem;
+      padding-bottom: 0.9rem;
+      background: #fff;
+    }
+
+    .nav-link{
+      font-weight: 500;
+    }
+
+    .page-title{
+      background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    }
+
+    .section{
+      padding: 72px 0;
+    }
+
+    .section-soft{
+      background: #f8fafc;
+    }
+
+    .contact-card{
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 20px;
+      background: #ffffff;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+      padding: 2rem;
+      height: 100%;
+    }
+
+    .assessment-card{
+      border-radius: 24px;
+      padding: 2rem;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+    }
+
+    .small-muted{
+      color: #64748b;
+    }
+
+    .kicker{
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #2563eb;
+    }
+
+    .page-title h1{
+      color: #0f172a;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .contact-list{
+      padding-left: 1.1rem;
+      margin-bottom: 0;
+    }
+
+    .contact-list li{
+      margin-bottom: 0.65rem;
+      color: #334155;
+    }
+
+    .info-row{
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 1rem;
+    }
+
+    .info-item{
+      color: #334155;
+    }
+
+    .info-item strong{
+      color: #0f172a;
+    }
+
+    .process-number{
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #0d6efd;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin: 0 auto 1rem auto;
+      font-size: 1rem;
+    }
+
+    .cta-panel{
+      border-radius: 24px;
+      padding: 2.25rem;
+      background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
+      color: #fff;
+      box-shadow: 0 18px 40px rgba(13, 110, 253, 0.18);
+    }
+
+    .cta-panel .btn-light{
+      font-weight: 600;
+      border-radius: 12px;
+      padding: 0.9rem 1.25rem;
+    }
+
+    .hipaa-note{
+      max-width: 900px;
+      margin: 0 auto 2.5rem auto;
+      padding: 1rem 1.25rem;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+    }
+
+    .hipaa-title{
+      font-weight: 700;
+      margin-bottom: .35rem;
+      color: #0f172a;
+    }
+
+    .hipaa-text{
+      margin: 0;
+      color: #64748b;
+      font-size: .95rem;
+      line-height: 1.5;
+    }
+
+    .footer{
+      border-top: 1px solid rgba(15, 23, 42, 0.08);
+      background: #fff;
+    }
+
+    .footer a{
+      text-decoration: none;
+    }
+
+    @media (max-width: 991.98px){
+      .site-logo{
+        height: 36px;
+      }
+
+      .contact-card,
+      .assessment-card,
+      .cta-panel{
+        padding: 1.5rem;
+      }
+
+      .section{
+        padding: 56px 0;
+      }
+    }
   </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">
-	<a class="navbar-brand" href="index.html"><img src="logo.png" class="logo"> </a>
-     
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<header class="site-header">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container container-narrow">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="assets/logo.png" alt="SM Practice Solutions" class="site-logo">
+      </a>
 
-<!-- Hero Section -->
-<section class="hero">
-  <div class="container">
-    <h1>Contact SM Practice Solutions</h1>
-    <p class="lead mt-3">Get in touch to discuss how we can support your practice or business.</p>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="approach.html">Approach</a></li>
+          <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+        </ul>
+        <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="mailto:info@smpracticesolutions.com?subject=Consultation%20Request%20-%20SM%20Practice%20Solutions">
+          Schedule a Consultation
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<section class="page-title">
+  <div class="container container-narrow py-5">
+    <div class="kicker mb-2">Contact</div>
+    <h1 class="fw-bold mb-3">Start a Conversation</h1>
+    <p class="small-muted mb-0" style="max-width: 760px;">
+      Tell us about your coding, compliance, workflow, or revenue cycle challenges.
+      We’ll help identify the most practical next step for your organization.
+    </p>
   </div>
 </section>
 
-<!-- Contact Form -->
-<section class="container section">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <h2 class="mb-4 text-center">Send Us a Message</h2>
-      <form action="samanthamonette@practicesolutions.com" method="post" enctype="text/plain">
-        <div class="mb-3">
-          <label for="name" class="form-label">Full Name</label>
-          <input type="text" class="form-control" id="name" name="Name" required>
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email Address</label>
-          <input type="email" class="form-control" id="email" name="Email" required>
-        </div>
-        <div class="mb-3">
-          <label for="message" class="form-label">Message</label>
-          <textarea class="form-control" id="message" name="Message" rows="5" required></textarea>
-        </div>
-        <div class="text-center">
-          <button type="submit" class="btn btn-primary">Send Message</button>
-        </div>
-      </form>
+<section class="section">
+  <div class="container container-narrow">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="contact-card">
+          <div class="kicker mb-2">Consultation</div>
+          <h2 class="fw-bold mb-3">Schedule a Consultation</h2>
+          <p class="small-muted mb-4">
+            Start with a short email describing your organization, your main challenge,
+            and the kind of support you may need. You can also request a free initial
+            revenue integrity assessment.
+          </p>
 
-      <p class="mt-4 text-center"><i class="fas fa-envelope"></i> <a href="mailto:samanthamonette@practicesolutions.com">samanthamonette@practicesolutions.com</a></p>
+          <div class="d-flex flex-wrap gap-2 mb-4">
+            <a
+              class="btn btn-primary"
+              href="mailto:info@smpracticesolutions.com?subject=Consultation%20Request%20-%20SM%20Practice%20Solutions"
+            >
+              Email SM Practice Solutions
+            </a>
+          </div>
+
+          <hr class="hr-soft">
+
+          <div class="info-row">
+            <div class="info-item"><strong>Email:</strong> info@smpracticesolutions.com</div>
+            <div class="info-item"><strong>Phone:</strong> 906-275-8323</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="contact-card">
+          <div class="kicker mb-2">Helpful Details</div>
+          <h2 class="fw-bold mb-3">What to Include</h2>
+          <p class="small-muted mb-4">
+            To help us quickly understand your needs, include a few details in your message:
+          </p>
+          <ul class="contact-list">
+            <li>Organization type (practice, physician group, or health system)</li>
+            <li>Main challenge (denials, documentation, coding accuracy, workflow)</li>
+            <li>Specialties involved</li>
+            <li>Approximate timeline or urgency</li>
+            <li>Preferred contact method</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<footer>
-  © 2025 SM Practice Solutions, LLC. All rights reserved.
+<section class="section section-soft">
+  <div class="container container-narrow">
+    <div class="assessment-card">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+          <div class="kicker mb-2">Complimentary First-Step Review</div>
+          <h2 class="fw-bold mb-3">Request a Free Revenue Integrity Assessment</h2>
+          <p class="small-muted mb-3">
+            For organizations facing denials, coding variation, documentation concerns,
+            or workflow inefficiencies, we offer an initial review conversation to help
+            identify likely problem areas and practical next steps.
+          </p>
+          <ul class="contact-list">
+            <li>Discuss your current challenge and operational concerns</li>
+            <li>Identify likely root-cause areas affecting performance</li>
+            <li>Recommend a practical starting point for improvement</li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 text-lg-end">
+          <a
+            class="btn btn-primary btn-lg"
+            href="mailto:info@smpracticesolutions.com?subject=Free%20Revenue%20Integrity%20Assessment%20Request"
+          >
+            Request Free Assessment
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container-narrow">
+
+    <div class="text-center mb-5">
+      <div class="kicker mb-2">Consultation Process</div>
+      <h2 class="fw-bold mb-2">What happens after you reach out</h2>
+      <p class="small-muted">
+        Our goal is to quickly understand the situation and determine whether we can help.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="contact-card text-center">
+          <div class="process-number">1</div>
+          <h3 class="h5 fw-bold">Initial Conversation</h3>
+          <p class="small-muted mb-0">
+            We review your challenge and determine whether a targeted assessment or consulting engagement is appropriate.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="contact-card text-center">
+          <div class="process-number">2</div>
+          <h3 class="h5 fw-bold">Problem Assessment</h3>
+          <p class="small-muted mb-0">
+            If needed, we evaluate the issue more closely to understand the operational or documentation drivers behind it.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="contact-card text-center">
+          <div class="process-number">3</div>
+          <h3 class="h5 fw-bold">Recommended Next Steps</h3>
+          <p class="small-muted mb-0">
+            We outline practical recommendations or engagement options tailored to your organization.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container-narrow">
+    <div class="cta-panel">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+          <div class="kicker text-white-50 mb-2">Start Here</div>
+          <h2 class="fw-bold mb-2">Need help with coding, denials, compliance, or workflow performance?</h2>
+          <p class="mb-0 text-white-50">
+            Reach out to discuss your current challenge or request a free initial revenue integrity assessment.
+          </p>
+        </div>
+
+        <div class="col-lg-4 text-lg-end">
+          <a
+            class="btn btn-light btn-lg"
+            href="mailto:info@smpracticesolutions.com?subject=Consultation%20Request%20-%20SM%20Practice%20Solutions"
+          >
+            Request Consultation
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container container-narrow">
+  <div class="hipaa-note">
+    <div class="hipaa-title">HIPAA-Compliant Remote Services</div>
+    <p class="hipaa-text">
+      All services are HIPAA-compliant and provided remotely.
+      Please do not submit protected health information (PHI) through this website or by email.
+      Secure workflows will be coordinated when necessary.
+    </p>
+  </div>
+</div>
+
+<footer class="footer py-4">
+  <div class="container container-narrow d-flex flex-column flex-md-row justify-content-between gap-3">
+    <div class="small-muted">
+      © <span id="yr"></span> SM Practice Solutions. All rights reserved.
+      <br>
+      SM Practice Solutions provides independent advisory services to healthcare organizations seeking practical,
+      compliance-driven improvements in revenue performance.
+    </div>
+
+    <div class="d-flex gap-3">
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
