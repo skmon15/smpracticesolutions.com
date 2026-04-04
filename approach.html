@@ -1,492 +1,797 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Approach | SM Practice Solutions</title>
   <meta
     name="description"
     content="Learn how SM Practice Solutions approaches revenue integrity, coding, denials, compliance, and workflow optimization through a structured, practical consulting model."
   />
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
-  <link rel="preconnect" href="https://images.unsplash.com">
-
   <style>
-    .site-header{
-      position: sticky;
-      top: 0;
-      z-index: 1030;
-      background: #ffffff;
-      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    :root {
+      --bg: #f7f4fb;
+      --surface: #ffffff;
+      --surface-2: #f2ecf8;
+      --text: #1f1630;
+      --muted: #645a74;
+      --primary: #6f42c1;
+      --primary-dark: #552c9a;
+      --accent: #e7dcfb;
+      --border: #e4d9f3;
+      --shadow: 0 18px 45px rgba(74, 38, 118, 0.10);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --max: 1180px;
     }
 
-    .site-logo{
-      height: 28px;
-      width: auto;
-      display: block;
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
 
-    .navbar-brand{
+    a {
+      color: inherit;
       text-decoration: none;
-      padding: 0;
-      margin-right: 1rem;
     }
 
-    .navbar{
-      padding-top: 0.75rem;
-      padding-bottom: 0.75rem;
-      background: #fff;
-    }
-
-    .nav-link{
-      font-weight: 500;
-    }
-
-    .approach-hero-image-wrap,
-    .feature-image-wrap {
-      overflow: hidden;
-      border-radius: 1.25rem;
-    }
-
-    .approach-hero-image,
-    .feature-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    img {
+      max-width: 100%;
       display: block;
     }
 
-    .approach-card,
-    .deliverable-card,
-    .benefit-card,
-    .value-card {
-      border: 1px solid rgba(0,0,0,.06);
-      border-radius: 1rem;
-      background: #fff;
-      box-shadow: 0 10px 28px rgba(16, 24, 40, 0.05);
-      padding: 1.5rem;
-      height: 100%;
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
     }
 
-    .approach-step {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(13, 110, 253, .08);
-      color: #0d6efd;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 999px;
       font-weight: 700;
-      margin-bottom: 1rem;
+      font-size: 15px;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--primary-dark);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-2);
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--primary-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, h4, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 4vw, 4.4rem);
+      line-height: 1.08;
+      margin: 18px 0 18px;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+    }
+
+    p.section-lead,
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 244, 251, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(111, 66, 193, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 82px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--text);
+      min-width: 0;
+    }
+
+    .brand-logo {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      min-width: 0;
+    }
+
+    .brand-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--primary-dark);
+    }
+
+    .hero {
+      padding: 56px 0 72px;
+    }
+
+    .hero-grid,
+    .two-grid,
+    .three-grid,
+    .four-grid,
+    .steps-grid,
+    .deliverables-grid,
+    .benefits-grid,
+    .credibility-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .hero-grid {
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: stretch;
+    }
+
+    .two-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .three-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .four-grid,
+    .steps-grid,
+    .deliverables-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .benefits-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .credibility-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .hero-copy,
+    .hero-card,
+    .card,
+    .step-card,
+    .deliverable-card,
+    .benefit-card,
+    .cta,
+    .image-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      padding: 48px;
+    }
+
+    .hero-card {
+      padding: 28px;
+      background: linear-gradient(180deg, #fff 0%, #f7f1fe 100%);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+      margin-bottom: 20px;
+    }
+
+    .credibility-strip,
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .credibility-strip span,
+    .pill-item {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: 13px;
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .hero-image,
+    .section-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 24px;
+    }
+
+    .image-card {
+      padding: 14px;
+      overflow: hidden;
+    }
+
+    .card,
+    .step-card,
+    .deliverable-card,
+    .benefit-card {
+      padding: 28px;
+      height: 100%;
+    }
+
+    .step-number,
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--accent);
+      color: var(--primary-dark);
+      font-weight: 800;
+      margin-bottom: 18px;
     }
 
     .credibility-band {
-      border-top: 1px solid rgba(0,0,0,.06);
-      border-bottom: 1px solid rgba(0,0,0,.06);
       background: #fff;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
 
     .credibility-item {
       text-align: center;
-      padding: 1rem;
+      padding: 22px 14px;
     }
 
     .credibility-label {
-      font-size: .88rem;
-      color: #64748b;
+      font-size: .85rem;
+      color: var(--muted);
       margin-bottom: .25rem;
       text-transform: uppercase;
       letter-spacing: .04em;
+      font-weight: 700;
     }
 
     .credibility-value {
-      font-weight: 700;
-      color: #0f172a;
+      font-weight: 800;
+      color: var(--text);
     }
 
     .section-soft {
-      background: #f8fafc;
+      background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(242,236,248,0.75) 100%);
     }
 
-    .pill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .65rem;
-    }
-
-    .pill-item {
-      display: inline-flex;
-      align-items: center;
-      padding: .55rem .9rem;
-      border-radius: 999px;
-      background: #eef4ff;
-      border: 1px solid rgba(13,110,253,.12);
-      color: #0f172a;
-      font-size: .94rem;
-      font-weight: 500;
-    }
-
-    .cta-panel {
-      border-radius: 1.25rem;
-      padding: 2rem;
-      background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
+    .cta {
+      padding: 42px;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
       color: #fff;
-      box-shadow: 0 18px 40px rgba(13,110,253,.18);
     }
 
-    .cta-panel .btn-light {
-      font-weight: 600;
+    .cta p {
+      color: rgba(255,255,255,0.88);
     }
 
     .hipaa-note {
-      max-width: 900px;
-      margin: 0 auto 2rem auto;
-      padding: 1rem 1.25rem;
-      border-radius: 1rem;
-      background: #f8fafc;
-      border: 1px solid rgba(0,0,0,.06);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: var(--shadow);
     }
 
     .hipaa-title {
-      font-weight: 700;
-      margin-bottom: .35rem;
-      color: #0f172a;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 8px;
     }
 
-    .hipaa-text {
-      margin: 0;
-      color: #64748b;
-      font-size: .95rem;
+    .footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--border);
+      padding-top: 22px;
     }
 
-    @media (max-width: 991.98px) {
-      .page-title h1 {
-        font-size: 2rem;
+    .small-note {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .two-grid,
+      .steps-grid,
+      .deliverables-grid,
+      .benefits-grid,
+      .credibility-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 0;
       }
 
-      .site-logo{
-        height: 26px;
+      .brand-logo {
+        width: 52px;
+        height: 52px;
+      }
+
+      .brand-title {
+        font-size: 0.98rem;
+      }
+
+      .brand-subtitle {
+        font-size: 0.68rem;
+      }
+
+      nav ul {
+        gap: 14px;
+      }
+
+      .hero-copy,
+      .hero-card,
+      .card,
+      .step-card,
+      .deliverable-card,
+      .benefit-card,
+      .cta {
+        padding: 24px;
+      }
+
+      .hero-grid,
+      .two-grid,
+      .three-grid,
+      .four-grid,
+      .steps-grid,
+      .deliverables-grid,
+      .benefits-grid,
+      .credibility-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .hero {
+        padding-top: 28px;
       }
     }
   </style>
 </head>
 <body>
-
-<header class="site-header">
-  <nav class="navbar navbar-expand-lg">
-    <div class="container container-narrow">
-      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-        <img src="assets/logo.png" alt="SM Practice Solutions" class="site-logo">
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img src="images/sm-logo.png" alt="SM Practice Solutions logo" class="brand-logo" />
+        <span class="brand-text">
+          <span class="brand-title">SM Practice Solutions</span>
+          <span class="brand-subtitle">Revenue Integrity Consulting</span>
+        </span>
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="nav">
-        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link active" href="approach.html">Approach</a></li>
-          <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="approach.html" class="active">Approach</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
-        <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="contact.html">Schedule a Strategy Consultation</a>
-      </div>
-    </div>
-  </nav>
-</header>
+      </nav>
 
-<section class="page-title">
-  <div class="container container-narrow py-5">
-    <div class="row align-items-center g-4">
-      <div class="col-lg-7">
-        <div class="kicker mb-2">Our Approach</div>
-        <h1 class="fw-bold mb-3">Assess. Align. Improve. Sustain.</h1>
-        <p class="small-muted mb-0">
-          Our consulting model is designed to uncover root causes, create operational clarity,
-          and support measurable, compliance-driven improvement over time.
-        </p>
-      </div>
-      <div class="col-lg-5">
-        <div class="approach-hero-image-wrap shadow-sm">
-          <img
-            class="approach-hero-image"
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80"
-            alt="Healthcare professionals reviewing workflow and strategy"
-          />
+      <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Our Approach</span>
+          <h1>Assess. Align. Improve. Sustain.</h1>
+          <p>
+            Our consulting model is designed to uncover root causes, create operational clarity,
+            and support measurable, compliance-driven improvement over time.
+          </p>
+          <div class="hero-actions">
+            <a href="contact.html" class="btn btn-primary">Schedule a Strategy Consultation</a>
+            <a href="services.html" class="btn btn-secondary">View Services</a>
+          </div>
+          <div class="credibility-strip">
+            <span>Assess</span>
+            <span>Align</span>
+            <span>Improve</span>
+            <span>Sustain</span>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="credibility-band">
-  <div class="container container-narrow py-3">
-    <div class="row g-3">
-      <div class="col-6 col-lg-3">
+        <aside class="hero-card">
+          <div class="image-card" style="margin-bottom:18px;">
+            <img
+              class="hero-image"
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80"
+              alt="Healthcare professionals reviewing workflow and strategy"
+            />
+          </div>
+          <span class="eyebrow">What this model is built to do</span>
+          <div class="two-grid" style="margin-top:18px;">
+            <div class="card">
+              <div class="card-icon">01</div>
+              <h3>Find Root Causes</h3>
+              <p>Look beyond surface symptoms to identify what is actually driving performance risk.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon">02</div>
+              <h3>Create Alignment</h3>
+              <p>Bring providers, coders, leaders, and workflows into clearer operational sync.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon">03</div>
+              <h3>Support Change</h3>
+              <p>Move from analysis into practical improvements that can be implemented in real operations.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon">04</div>
+              <h3>Hold Gains</h3>
+              <p>Build structures that help improvement continue instead of fading after the first fix.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="credibility-band">
+      <div class="container credibility-grid">
         <div class="credibility-item">
           <div class="credibility-label">Step 1</div>
           <div class="credibility-value">Assess</div>
         </div>
-      </div>
-      <div class="col-6 col-lg-3">
         <div class="credibility-item">
           <div class="credibility-label">Step 2</div>
           <div class="credibility-value">Align</div>
         </div>
-      </div>
-      <div class="col-6 col-lg-3">
         <div class="credibility-item">
           <div class="credibility-label">Step 3</div>
           <div class="credibility-value">Improve</div>
         </div>
-      </div>
-      <div class="col-6 col-lg-3">
         <div class="credibility-item">
           <div class="credibility-label">Step 4</div>
           <div class="credibility-value">Sustain</div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section">
-  <div class="container container-narrow">
-    <div class="row align-items-center g-4">
-      <div class="col-lg-6">
-        <div class="feature-image-wrap shadow-sm">
+    <section class="section">
+      <div class="container two-grid" style="align-items:center;">
+        <div class="image-card">
           <img
-            class="feature-image"
+            class="section-image"
             src="https://images.unsplash.com/photo-1576671081837-49000212a370?auto=format&fit=crop&w=1200&q=80"
             alt="Healthcare leadership team discussing process improvement"
           />
         </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="kicker mb-2">Why This Approach Works</div>
-        <h2 class="fw-bold mb-3">Sustainable improvement requires more than isolated fixes</h2>
-        <p class="small-muted">
-          Most revenue integrity issues are not caused by a single coding mistake.
-          They are usually driven by broader patterns in documentation, workflow,
-          education, accountability, or operational design.
-        </p>
-        <p class="small-muted">
-          Our approach focuses on the full operating environment so solutions hold over time,
-          reduce repeat issues, and support both compliance and performance.
-        </p>
-        <div class="pill-list mt-3">
-          <span class="pill-item">Revenue Integrity</span>
-          <span class="pill-item">Compliance Support</span>
-          <span class="pill-item">Workflow Optimization</span>
-          <span class="pill-item">Provider Education</span>
+
+        <div>
+          <span class="eyebrow">Why This Approach Works</span>
+          <h2>Sustainable improvement requires more than isolated fixes</h2>
+          <p class="section-lead">
+            Most revenue integrity issues are not caused by a single coding mistake.
+            They are usually driven by broader patterns in documentation, workflow,
+            education, accountability, or operational design.
+          </p>
+          <p>
+            Our approach focuses on the full operating environment so solutions hold over time,
+            reduce repeat issues, and support both compliance and performance.
+          </p>
+
+          <div class="pill-list">
+            <span class="pill-item">Revenue Integrity</span>
+            <span class="pill-item">Compliance Support</span>
+            <span class="pill-item">Workflow Optimization</span>
+            <span class="pill-item">Provider Education</span>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container">
+        <div style="text-align:center; margin-bottom:40px;">
+          <span class="eyebrow">Our Process</span>
+          <h2>A structured path from problem identification to lasting improvement</h2>
+          <p class="section-lead" style="margin:0 auto;">
+            Each step is designed to bring clarity, accountability, and measurable progress.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <div class="step-number">01</div>
+            <h3>Assess</h3>
+            <p>
+              We review denials, documentation patterns, workflow friction points, coding variation,
+              and compliance exposure to identify what is truly driving the issue.
+            </p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-number">02</div>
+            <h3>Align</h3>
+            <p>
+              We align providers, coders, revenue cycle stakeholders, and leadership around clear expectations,
+              roles, standards, and operational priorities.
+            </p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-number">03</div>
+            <h3>Improve</h3>
+            <p>
+              We implement practical education, workflow redesign, reporting improvements,
+              and accountability structures to reduce rework and prevent repeat issues.
+            </p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-number">04</div>
+            <h3>Sustain</h3>
+            <p>
+              We support long-term stability through reporting, controls, education plans,
+              and operational reinforcement so improvements continue to hold.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div style="text-align:center; margin-bottom:40px;">
+          <span class="eyebrow">What You Receive</span>
+          <h2>Clear deliverables built for action</h2>
+          <p class="section-lead" style="margin:0 auto;">
+            Our work is designed to leave organizations with practical next steps, not vague recommendations.
+          </p>
+        </div>
+
+        <div class="deliverables-grid">
+          <article class="deliverable-card">
+            <h3>Executive Summary</h3>
+            <p>
+              A concise overview of the main findings, risks, and highest-priority opportunities.
+            </p>
+          </article>
+
+          <article class="deliverable-card">
+            <h3>Action Plan</h3>
+            <p>
+              Practical recommendations with owners, timelines, and measurable focus areas.
+            </p>
+          </article>
+
+          <article class="deliverable-card">
+            <h3>Education Plan</h3>
+            <p>
+              Provider or coder education strategies aligned to findings and operational needs.
+            </p>
+          </article>
+
+          <article class="deliverable-card">
+            <h3>Workflow Clarity</h3>
+            <p>
+              Clearer operational pathways with improved understanding of roles, handoffs, and expectations.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container">
+        <div style="text-align:center; margin-bottom:40px;">
+          <span class="eyebrow">What This Supports</span>
+          <h2>Outcomes that strengthen both compliance and performance</h2>
+          <p class="section-lead" style="margin:0 auto;">
+            A strong consulting process should improve more than one metric — it should support the whole environment.
+          </p>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <h3>Reduced Rework</h3>
+            <p>
+              Better workflows and clearer expectations help reduce unnecessary touches and repeated corrections.
+            </p>
+          </article>
+
+          <article class="benefit-card">
+            <h3>Stronger Documentation Integrity</h3>
+            <p>
+              Education and alignment support more consistent documentation and lower audit risk.
+            </p>
+          </article>
+
+          <article class="benefit-card">
+            <h3>Operational Stability</h3>
+            <p>
+              Practical structures help performance hold over time instead of improving only temporarily.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta">
+          <div class="two-grid" style="align-items:center;">
+            <div>
+              <span class="eyebrow" style="background: rgba(255,255,255,0.14); color:#fff;">Let’s Connect</span>
+              <h2 style="color:#fff; margin-top:18px;">Need a more structured path forward?</h2>
+              <p>
+                Reach out to discuss your coding, denial, compliance, or workflow challenges and explore the right next step.
+              </p>
+            </div>
+            <div style="display:flex; justify-content:flex-end; align-items:center;">
+              <a class="btn btn-secondary" href="contact.html">Schedule a Strategy Consultation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="hipaa-note">
+          <div class="hipaa-title">HIPAA-Compliant Remote Services</div>
+          <p class="small-note" style="font-size:15px; margin:0;">
+            All services are HIPAA-compliant and provided remotely. Please do not submit protected health information (PHI)
+            through this website or by email. Secure workflows can be coordinated when needed.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div>
+        <strong>SM Practice Solutions</strong>
+        <div class="small-note" style="margin-top:8px; max-width:560px;">
+          SM Practice Solutions provides independent advisory services to healthcare organizations seeking practical,
+          compliance-driven improvements in revenue performance.
+        </div>
+      </div>
+      <div class="small-note">
+        © 2026 SM Practice Solutions. All rights reserved.<br />
+        HIPAA-conscious remote services. Do not submit PHI through this website.
       </div>
     </div>
-  </div>
-</section>
-
-<section class="section section-soft">
-  <div class="container container-narrow">
-    <div class="text-center mb-5">
-      <div class="kicker mb-2">Our Process</div>
-      <h2 class="fw-bold mb-2">A structured path from problem identification to lasting improvement</h2>
-      <p class="small-muted mb-0">
-        Each step is designed to bring clarity, accountability, and measurable progress.
-      </p>
-    </div>
-
-    <div class="row g-4">
-      <div class="col-lg-6">
-        <div class="approach-card">
-          <div class="approach-step">01</div>
-          <h3 class="fw-bold">Assess</h3>
-          <p class="small-muted mb-0">
-            We review denials, documentation patterns, workflow friction points, coding variation,
-            and compliance exposure to identify what is truly driving the issue.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-lg-6">
-        <div class="approach-card">
-          <div class="approach-step">02</div>
-          <h3 class="fw-bold">Align</h3>
-          <p class="small-muted mb-0">
-            We align providers, coders, revenue cycle stakeholders, and leadership around clear expectations,
-            roles, standards, and operational priorities.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-lg-6">
-        <div class="approach-card">
-          <div class="approach-step">03</div>
-          <h3 class="fw-bold">Improve</h3>
-          <p class="small-muted mb-0">
-            We implement practical education, workflow redesign, reporting improvements,
-            and accountability structures to reduce rework and prevent repeat issues.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-lg-6">
-        <div class="approach-card">
-          <div class="approach-step">04</div>
-          <h3 class="fw-bold">Sustain</h3>
-          <p class="small-muted mb-0">
-            We support long-term stability through reporting, controls, education plans,
-            and operational reinforcement so improvements continue to hold.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container container-narrow">
-    <div class="text-center mb-5">
-      <div class="kicker mb-2">What You Receive</div>
-      <h2 class="fw-bold mb-2">Clear deliverables built for action</h2>
-      <p class="small-muted mb-0">
-        Our work is designed to leave organizations with practical next steps, not vague recommendations.
-      </p>
-    </div>
-
-    <div class="row g-4">
-      <div class="col-md-6 col-xl-3">
-        <div class="deliverable-card">
-          <h3 class="h5 fw-bold">Executive Summary</h3>
-          <p class="small-muted mb-0">
-            A concise overview of the main findings, risks, and highest-priority opportunities.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-xl-3">
-        <div class="deliverable-card">
-          <h3 class="h5 fw-bold">Action Plan</h3>
-          <p class="small-muted mb-0">
-            Practical recommendations with owners, timelines, and measurable focus areas.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-xl-3">
-        <div class="deliverable-card">
-          <h3 class="h5 fw-bold">Education Plan</h3>
-          <p class="small-muted mb-0">
-            Provider or coder education strategies aligned to findings and operational needs.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-xl-3">
-        <div class="deliverable-card">
-          <h3 class="h5 fw-bold">Workflow Clarity</h3>
-          <p class="small-muted mb-0">
-            Clearer operational pathways with improved understanding of roles, handoffs, and expectations.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-soft">
-  <div class="container container-narrow">
-    <div class="text-center mb-5">
-      <div class="kicker mb-2">What This Supports</div>
-      <h2 class="fw-bold mb-2">Outcomes that strengthen both compliance and performance</h2>
-      <p class="small-muted mb-0">
-        A strong consulting process should improve more than one metric — it should support the whole environment.
-      </p>
-    </div>
-
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="benefit-card text-center">
-          <h3 class="h5 fw-bold">Reduced Rework</h3>
-          <p class="small-muted mb-0">
-            Better workflows and clearer expectations help reduce unnecessary touches and repeated corrections.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="benefit-card text-center">
-          <h3 class="h5 fw-bold">Stronger Documentation Integrity</h3>
-          <p class="small-muted mb-0">
-            Education and alignment support more consistent documentation and lower audit risk.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="benefit-card text-center">
-          <h3 class="h5 fw-bold">Operational Stability</h3>
-          <p class="small-muted mb-0">
-            Practical structures help performance hold over time instead of improving only temporarily.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container container-narrow">
-    <div class="cta-panel">
-      <div class="row align-items-center g-4">
-        <div class="col-lg-8">
-          <div class="kicker text-white-50 mb-2">Let’s Connect</div>
-          <h2 class="fw-bold mb-2">Need a more structured path forward?</h2>
-          <p class="mb-0 text-white-50">
-            Reach out to discuss your coding, denial, compliance, or workflow challenges and explore the right next step.
-          </p>
-        </div>
-        <div class="col-lg-4 text-lg-end">
-          <a class="btn btn-light btn-lg" href="contact.html">Schedule a Strategy Consultation</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="container container-narrow">
-  <div class="hipaa-note">
-    <div class="hipaa-title">HIPAA-Compliant Remote Services</div>
-    <p class="hipaa-text">
-      All services are HIPAA-compliant and provided remotely. Please do not submit protected health information (PHI)
-      through this website or by email. Secure workflows can be coordinated when needed.
-    </p>
-  </div>
-</div>
-
-<footer class="footer py-4">
-  <div class="container container-narrow d-flex flex-column flex-md-row justify-content-between gap-2">
-    <div class="small-muted">
-      © <span id="yr"></span> SM Practice Solutions. All rights reserved.
-      <br>
-      SM Practice Solutions provides independent advisory services to healthcare organizations seeking practical,
-      compliance-driven improvements in revenue performance.
-    </div>
-    <div class="d-flex gap-3">
-      <a href="services.html">Services</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
-</footer>
-
-<script>
-  document.getElementById("yr").textContent = new Date().getFullYear();
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </footer>
 </body>
 </html>
