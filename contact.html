@@ -1,246 +1,520 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | SM Practice Solutions</title>
-  <meta name="description" content="Contact SM Practice Solutions to discuss revenue integrity, coding, denials, compliance, and workflow consulting." />
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
-
+  <meta
+    name="description"
+    content="Contact SM Practice Solutions to discuss revenue integrity, coding, denials, compliance, and workflow consulting."
+  />
   <style>
-    .site-header{
-      position: sticky;
-      top: 0;
-      z-index: 1030;
-      background: #ffffff;
-      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    :root {
+      --bg: #f7f4fb;
+      --surface: #ffffff;
+      --surface-2: #f2ecf8;
+      --text: #1f1630;
+      --muted: #645a74;
+      --primary: #6f42c1;
+      --primary-dark: #552c9a;
+      --accent: #e7dcfb;
+      --border: #e4d9f3;
+      --shadow: 0 18px 45px rgba(74, 38, 118, 0.10);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --max: 1180px;
     }
 
-    .site-logo{
-      height: 40px;
-      width: auto;
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
       display: block;
     }
 
-    .navbar-brand{
-      text-decoration: none;
-      padding: 0;
-      margin-right: 1rem;
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
     }
 
-    .navbar{
-      padding-top: 0.9rem;
-      padding-bottom: 0.9rem;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-secondary {
       background: #fff;
+      color: var(--primary-dark);
+      border-color: var(--border);
     }
 
-    .nav-link{
-      font-weight: 500;
+    .btn-secondary:hover {
+      background: var(--surface-2);
     }
 
-    .page-title{
-      background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
-      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    .section {
+      padding: 80px 0;
     }
 
-    .section{
-      padding: 72px 0;
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--primary-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
 
-    .section-soft{
-      background: #f8fafc;
+    h1, h2, h3, h4, p {
+      margin-top: 0;
     }
 
-    .contact-card{
-      border: 1px solid rgba(15, 23, 42, 0.08);
-      border-radius: 20px;
-      background: #ffffff;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
-      padding: 2rem;
+    h1 {
+      font-size: clamp(2.4rem, 4vw, 4.2rem);
+      line-height: 1.08;
+      margin: 18px 0 18px;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+    }
+
+    p.section-lead,
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 244, 251, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(111, 66, 193, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 82px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--text);
+      min-width: 0;
+    }
+
+    .brand-logo {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      min-width: 0;
+    }
+
+    .brand-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--primary-dark);
+    }
+
+    .hero {
+      padding: 56px 0 72px;
+    }
+
+    .hero-wrap,
+    .two-grid,
+    .three-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .hero-wrap {
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: stretch;
+    }
+
+    .two-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .three-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero-copy,
+    .hero-card,
+    .contact-card,
+    .assessment-card,
+    .process-card,
+    .cta,
+    .hipaa-note {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      padding: 48px;
+    }
+
+    .hero-card,
+    .contact-card,
+    .assessment-card,
+    .process-card {
+      padding: 28px;
       height: 100%;
     }
 
-    .assessment-card{
-      border-radius: 24px;
-      padding: 2rem;
-      border: 1px solid rgba(15, 23, 42, 0.08);
-      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+    .hero-card {
+      background: linear-gradient(180deg, #fff 0%, #f7f1fe 100%);
     }
 
-    .small-muted{
-      color: #64748b;
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+      margin-bottom: 20px;
     }
 
-    .kicker{
-      font-size: 0.82rem;
+    .credibility-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .credibility-strip span {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--primary-dark);
       font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #2563eb;
+      font-size: 13px;
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
     }
 
-    .page-title h1{
-      color: #0f172a;
-      font-size: clamp(2rem, 4vw, 3rem);
-    }
-
-    .contact-list{
-      padding-left: 1.1rem;
+    .contact-list {
+      padding-left: 18px;
       margin-bottom: 0;
     }
 
-    .contact-list li{
-      margin-bottom: 0.65rem;
-      color: #334155;
+    .contact-list li {
+      margin-bottom: 10px;
     }
 
-    .info-row{
+    .info-row {
       display: grid;
-      gap: 0.65rem;
-      margin-top: 1rem;
+      gap: 12px;
+      margin-top: 20px;
     }
 
-    .info-item{
-      color: #334155;
+    .info-item strong {
+      color: var(--text);
     }
 
-    .info-item strong{
-      color: #0f172a;
+    .process-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--accent);
+      color: var(--primary-dark);
+      font-weight: 800;
+      margin-bottom: 18px;
     }
 
-    .process-number{
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      background: #0d6efd;
+    .section-soft {
+      background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(242,236,248,0.75) 100%);
+    }
+
+    .assessment-card {
+      background: linear-gradient(180deg, #fff 0%, #f6f0fd 100%);
+    }
+
+    .cta {
+      padding: 42px;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
       color: #fff;
+    }
+
+    .cta p {
+      color: rgba(255,255,255,0.88);
+    }
+
+    .hipaa-note {
+      padding: 22px;
+    }
+
+    .hipaa-title {
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .footer-wrap {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      margin: 0 auto 1rem auto;
-      font-size: 1rem;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--border);
+      padding-top: 22px;
     }
 
-    .cta-panel{
-      border-radius: 24px;
-      padding: 2.25rem;
-      background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
-      color: #fff;
-      box-shadow: 0 18px 40px rgba(13, 110, 253, 0.18);
+    .small-note {
+      color: var(--muted);
+      font-size: 13px;
     }
 
-    .cta-panel .btn-light{
-      font-weight: 600;
-      border-radius: 12px;
-      padding: 0.9rem 1.25rem;
+    footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+      font-size: 14px;
     }
 
-    .hipaa-note{
-      max-width: 900px;
-      margin: 0 auto 2.5rem auto;
-      padding: 1rem 1.25rem;
-      border-radius: 16px;
-      background: #f8fafc;
-      border: 1px solid rgba(15, 23, 42, 0.08);
+    @media (max-width: 1080px) {
+      .hero-wrap,
+      .two-grid,
+      .three-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
-    .hipaa-title{
-      font-weight: 700;
-      margin-bottom: .35rem;
-      color: #0f172a;
-    }
-
-    .hipaa-text{
-      margin: 0;
-      color: #64748b;
-      font-size: .95rem;
-      line-height: 1.5;
-    }
-
-    .footer{
-      border-top: 1px solid rgba(15, 23, 42, 0.08);
-      background: #fff;
-    }
-
-    .footer a{
-      text-decoration: none;
-    }
-
-    @media (max-width: 991.98px){
-      .site-logo{
-        height: 36px;
+    @media (max-width: 760px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 0;
       }
 
+      .brand-logo {
+        width: 52px;
+        height: 52px;
+      }
+
+      .brand-title {
+        font-size: 0.98rem;
+      }
+
+      .brand-subtitle {
+        font-size: 0.68rem;
+      }
+
+      nav ul {
+        gap: 14px;
+      }
+
+      .hero-copy,
+      .hero-card,
       .contact-card,
       .assessment-card,
-      .cta-panel{
-        padding: 1.5rem;
+      .process-card,
+      .cta,
+      .hipaa-note {
+        padding: 24px;
       }
 
-      .section{
-        padding: 56px 0;
+      .hero-wrap,
+      .two-grid,
+      .three-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .hero {
+        padding-top: 28px;
       }
     }
   </style>
 </head>
 <body>
-
-<header class="site-header">
-  <nav class="navbar navbar-expand-lg">
-    <div class="container container-narrow">
-      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-        <img src="assets/logo.png" alt="SM Practice Solutions" class="site-logo">
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img src="images/sm-logo.png" alt="SM Practice Solutions logo" class="brand-logo" />
+        <span class="brand-text">
+          <span class="brand-title">SM Practice Solutions</span>
+          <span class="brand-subtitle">Revenue Integrity Consulting</span>
+        </span>
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="nav">
-        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="approach.html">Approach</a></li>
-          <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
-          <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="approach.html">Approach</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
-        <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="mailto:info@smpracticesolutions.com?subject=Consultation%20Request%20-%20SM%20Practice%20Solutions">
-          Schedule a Consultation
-        </a>
-      </div>
+      </nav>
+
+      <a class="btn btn-primary" href="mailto:info@smpracticesolutions.com?subject=Consultation%20Request%20-%20SM%20Practice%20Solutions">
+        Schedule a Consultation
+      </a>
     </div>
-  </nav>
-</header>
+  </header>
 
-<section class="page-title">
-  <div class="container container-narrow py-5">
-    <div class="kicker mb-2">Contact</div>
-    <h1 class="fw-bold mb-3">Start a Conversation</h1>
-    <p class="small-muted mb-0" style="max-width: 760px;">
-      Tell us about your coding, compliance, workflow, or revenue cycle challenges.
-      We’ll help identify the most practical next step for your organization.
-    </p>
-  </div>
-</section>
+  <main>
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div class="hero-copy">
+          <span class="eyebrow">Contact</span>
+          <h1>Start a Conversation</h1>
+          <p>
+            Tell us about your coding, compliance, workflow, or revenue cycle challenges.
+            We’ll help identify the most practical next step for your organization.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:info@smpracticesolutions.com?subject=Consultation%20Request%20-%20SM%20Practice%20Solutions">
+              Email SM Practice Solutions
+            </a>
+            <a class="btn btn-secondary" href="tel:9062758323">
+              Call 906-275-8323
+            </a>
+          </div>
+          <div class="credibility-strip">
+            <span>Revenue integrity</span>
+            <span>Compliance support</span>
+            <span>Workflow consulting</span>
+            <span>Remote services</span>
+          </div>
+        </div>
 
-<section class="section">
-  <div class="container container-narrow">
-    <div class="row g-4">
-      <div class="col-lg-6">
-        <div class="contact-card">
-          <div class="kicker mb-2">Consultation</div>
-          <h2 class="fw-bold mb-3">Schedule a Consultation</h2>
-          <p class="small-muted mb-4">
+        <aside class="hero-card">
+          <span class="eyebrow">Quick Contact Details</span>
+          <h3 style="margin-top:18px; font-size:1.5rem;">Reach out directly</h3>
+          <p>
             Start with a short email describing your organization, your main challenge,
             and the kind of support you may need. You can also request a free initial
             revenue integrity assessment.
           </p>
 
-          <div class="d-flex flex-wrap gap-2 mb-4">
+          <div class="info-row">
+            <div class="info-item"><strong>Email:</strong> info@smpracticesolutions.com</div>
+            <div class="info-item"><strong>Phone:</strong> 906-275-8323</div>
+            <div class="info-item"><strong>Services:</strong> Remote, HIPAA-conscious consulting support</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container two-grid">
+        <div class="contact-card">
+          <span class="eyebrow">Consultation</span>
+          <h2>Schedule a Consultation</h2>
+          <p class="section-lead" style="max-width:100%;">
+            Start with a short email describing your organization, your main challenge,
+            and the kind of support you may need. You can also request a free initial
+            revenue integrity assessment.
+          </p>
+
+          <div class="hero-actions" style="margin-top:20px; margin-bottom:20px;">
             <a
               class="btn btn-primary"
               href="mailto:info@smpracticesolutions.com?subject=Consultation%20Request%20-%20SM%20Practice%20Solutions"
@@ -249,20 +523,16 @@
             </a>
           </div>
 
-          <hr class="hr-soft">
-
           <div class="info-row">
             <div class="info-item"><strong>Email:</strong> info@smpracticesolutions.com</div>
             <div class="info-item"><strong>Phone:</strong> 906-275-8323</div>
           </div>
         </div>
-      </div>
 
-      <div class="col-lg-6">
         <div class="contact-card">
-          <div class="kicker mb-2">Helpful Details</div>
-          <h2 class="fw-bold mb-3">What to Include</h2>
-          <p class="small-muted mb-4">
+          <span class="eyebrow">Helpful Details</span>
+          <h2>What to Include</h2>
+          <p class="section-lead" style="max-width:100%;">
             To help us quickly understand your needs, include a few details in your message:
           </p>
           <ul class="contact-list">
@@ -274,144 +544,132 @@
           </ul>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section section-soft">
-  <div class="container container-narrow">
-    <div class="assessment-card">
-      <div class="row align-items-center g-4">
-        <div class="col-lg-8">
-          <div class="kicker mb-2">Complimentary First-Step Review</div>
-          <h2 class="fw-bold mb-3">Request a Free Revenue Integrity Assessment</h2>
-          <p class="small-muted mb-3">
-            For organizations facing denials, coding variation, documentation concerns,
-            or workflow inefficiencies, we offer an initial review conversation to help
-            identify likely problem areas and practical next steps.
-          </p>
-          <ul class="contact-list">
-            <li>Discuss your current challenge and operational concerns</li>
-            <li>Identify likely root-cause areas affecting performance</li>
-            <li>Recommend a practical starting point for improvement</li>
-          </ul>
-        </div>
+    <section class="section section-soft">
+      <div class="container">
+        <div class="assessment-card">
+          <div class="two-grid" style="align-items:center;">
+            <div>
+              <span class="eyebrow">Complimentary First-Step Review</span>
+              <h2>Request a Free Revenue Integrity Assessment</h2>
+              <p class="section-lead" style="max-width:100%;">
+                For organizations facing denials, coding variation, documentation concerns,
+                or workflow inefficiencies, we offer an initial review conversation to help
+                identify likely problem areas and practical next steps.
+              </p>
+              <ul class="contact-list">
+                <li>Discuss your current challenge and operational concerns</li>
+                <li>Identify likely root-cause areas affecting performance</li>
+                <li>Recommend a practical starting point for improvement</li>
+              </ul>
+            </div>
 
-        <div class="col-lg-4 text-lg-end">
-          <a
-            class="btn btn-primary btn-lg"
-            href="mailto:info@smpracticesolutions.com?subject=Free%20Revenue%20Integrity%20Assessment%20Request"
-          >
-            Request Free Assessment
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container container-narrow">
-
-    <div class="text-center mb-5">
-      <div class="kicker mb-2">Consultation Process</div>
-      <h2 class="fw-bold mb-2">What happens after you reach out</h2>
-      <p class="small-muted">
-        Our goal is to quickly understand the situation and determine whether we can help.
-      </p>
-    </div>
-
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="contact-card text-center">
-          <div class="process-number">1</div>
-          <h3 class="h5 fw-bold">Initial Conversation</h3>
-          <p class="small-muted mb-0">
-            We review your challenge and determine whether a targeted assessment or consulting engagement is appropriate.
-          </p>
+            <div style="display:flex; justify-content:flex-end; align-items:center;">
+              <a
+                class="btn btn-primary"
+                href="mailto:info@smpracticesolutions.com?subject=Free%20Revenue%20Integrity%20Assessment%20Request"
+              >
+                Request Free Assessment
+              </a>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="col-md-4">
-        <div class="contact-card text-center">
-          <div class="process-number">2</div>
-          <h3 class="h5 fw-bold">Problem Assessment</h3>
-          <p class="small-muted mb-0">
-            If needed, we evaluate the issue more closely to understand the operational or documentation drivers behind it.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="contact-card text-center">
-          <div class="process-number">3</div>
-          <h3 class="h5 fw-bold">Recommended Next Steps</h3>
-          <p class="small-muted mb-0">
-            We outline practical recommendations or engagement options tailored to your organization.
-          </p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section class="section">
-  <div class="container container-narrow">
-    <div class="cta-panel">
-      <div class="row align-items-center g-4">
-        <div class="col-lg-8">
-          <div class="kicker text-white-50 mb-2">Start Here</div>
-          <h2 class="fw-bold mb-2">Need help with coding, denials, compliance, or workflow performance?</h2>
-          <p class="mb-0 text-white-50">
-            Reach out to discuss your current challenge or request a free initial revenue integrity assessment.
+    <section class="section">
+      <div class="container">
+        <div style="text-align:center; margin-bottom:40px;">
+          <span class="eyebrow">Consultation Process</span>
+          <h2>What happens after you reach out</h2>
+          <p class="section-lead" style="margin:0 auto;">
+            Our goal is to quickly understand the situation and determine whether we can help.
           </p>
         </div>
 
-        <div class="col-lg-4 text-lg-end">
-          <a
-            class="btn btn-light btn-lg"
-            href="mailto:info@smpracticesolutions.com?subject=Consultation%20Request%20-%20SM%20Practice%20Solutions"
-          >
-            Request Consultation
-          </a>
+        <div class="three-grid">
+          <div class="process-card">
+            <div class="process-number">1</div>
+            <h3>Initial Conversation</h3>
+            <p>
+              We review your challenge and determine whether a targeted assessment or consulting engagement is appropriate.
+            </p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-number">2</div>
+            <h3>Problem Assessment</h3>
+            <p>
+              If needed, we evaluate the issue more closely to understand the operational or documentation drivers behind it.
+            </p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-number">3</div>
+            <h3>Recommended Next Steps</h3>
+            <p>
+              We outline practical recommendations or engagement options tailored to your organization.
+            </p>
+          </div>
         </div>
       </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta">
+          <div class="two-grid" style="align-items:center;">
+            <div>
+              <span class="eyebrow" style="background: rgba(255,255,255,0.14); color:#fff;">Start Here</span>
+              <h2 style="color:#fff; margin-top:18px;">Need help with coding, denials, compliance, or workflow performance?</h2>
+              <p>
+                Reach out to discuss your current challenge or request a free initial revenue integrity assessment.
+              </p>
+            </div>
+
+            <div style="display:flex; justify-content:flex-end; align-items:center;">
+              <a
+                class="btn btn-secondary"
+                href="mailto:info@smpracticesolutions.com?subject=Consultation%20Request%20-%20SM%20Practice%20Solutions"
+              >
+                Request Consultation
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="hipaa-note">
+          <div class="hipaa-title">HIPAA-Compliant Remote Services</div>
+          <p class="small-note" style="font-size:15px; margin:0;">
+            All services are HIPAA-compliant and provided remotely.
+            Please do not submit protected health information (PHI) through this website or by email.
+            Secure workflows will be coordinated when necessary.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div>
+        <strong>SM Practice Solutions</strong>
+        <div class="small-note" style="margin-top:8px; max-width:560px;">
+          SM Practice Solutions provides independent advisory services to healthcare organizations seeking practical,
+          compliance-driven improvements in revenue performance.
+        </div>
+      </div>
+
+      <div class="small-note">
+        © 2026 SM Practice Solutions. All rights reserved.<br />
+        HIPAA-conscious remote services. Do not submit PHI through this website.
+      </div>
     </div>
-  </div>
-</section>
-
-<div class="container container-narrow">
-  <div class="hipaa-note">
-    <div class="hipaa-title">HIPAA-Compliant Remote Services</div>
-    <p class="hipaa-text">
-      All services are HIPAA-compliant and provided remotely.
-      Please do not submit protected health information (PHI) through this website or by email.
-      Secure workflows will be coordinated when necessary.
-    </p>
-  </div>
-</div>
-
-<footer class="footer py-4">
-  <div class="container container-narrow d-flex flex-column flex-md-row justify-content-between gap-3">
-    <div class="small-muted">
-      © <span id="yr"></span> SM Practice Solutions. All rights reserved.
-      <br>
-      SM Practice Solutions provides independent advisory services to healthcare organizations seeking practical,
-      compliance-driven improvements in revenue performance.
-    </div>
-
-    <div class="d-flex gap-3">
-      <a href="services.html">Services</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
-</footer>
-
-<script>
-  document.getElementById("yr").textContent = new Date().getFullYear();
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </footer>
 </body>
 </html>
