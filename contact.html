@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Team | SM Practice Solutions</title>
+  <title>Contact | SM Practice Solutions</title>
   <meta
     name="description"
-    content="Meet the leadership behind SM Practice Solutions and learn how our team supports healthcare organizations through revenue integrity, coding, compliance, education, and workflow consulting."
+    content="Contact SM Practice Solutions to discuss revenue integrity, coding, denials, compliance, and workflow consulting."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
+
   <style>
     :root {
       --bg: #f7f3fc;
@@ -115,14 +116,14 @@
     }
 
     h1 {
-      font-size: clamp(2.5rem, 4vw, 4.3rem);
+      font-size: clamp(2.5rem, 4vw, 4.2rem);
       line-height: 1.04;
       margin: 18px 0;
       letter-spacing: -0.04em;
     }
 
     h2 {
-      font-size: clamp(2rem, 3vw, 3rem);
+      font-size: clamp(2rem, 3vw, 2.8rem);
       line-height: 1.1;
       margin-bottom: 16px;
       letter-spacing: -0.03em;
@@ -134,20 +135,15 @@
       line-height: 1.3;
     }
 
-    h4 {
-      font-size: 1rem;
-      margin-bottom: 10px;
-      line-height: 1.3;
-    }
-
-    p.section-lead,
+    p.lead,
     .hero p {
       font-size: 1.06rem;
       color: var(--muted);
       max-width: 760px;
     }
 
-    p, li {
+    p,
+    li {
       color: var(--muted);
     }
 
@@ -228,21 +224,18 @@
     }
 
     .hero {
-      padding: 56px 0 74px;
+      padding: 60px 0 38px;
     }
 
     .hero-grid,
     .two-grid,
-    .three-grid,
-    .four-grid,
-    .credibility-grid,
-    .future-grid {
+    .three-grid {
       display: grid;
-      gap: 22px;
+      gap: 24px;
     }
 
     .hero-grid {
-      grid-template-columns: 1.08fr 0.92fr;
+      grid-template-columns: 1.05fr 0.95fr;
       align-items: stretch;
     }
 
@@ -254,24 +247,14 @@
       grid-template-columns: repeat(3, 1fr);
     }
 
-    .four-grid,
-    .credibility-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .future-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
     .hero-copy,
     .hero-card,
-    .leader-card,
-    .value-card,
-    .future-role-card,
-    .credibility-card,
-    .image-card,
+    .contact-card,
+    .process-card,
+    .contact-form-shell,
     .hipaa-note,
-    .cta {
+    .cta,
+    .detail-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 30px;
@@ -284,39 +267,17 @@
     }
 
     .hero-card,
-    .leader-card,
-    .value-card,
-    .future-role-card,
-    .credibility-card,
-    .hipaa-note {
+    .contact-card,
+    .process-card,
+    .contact-form-shell,
+    .hipaa-note,
+    .detail-card {
       padding: 28px;
       height: 100%;
     }
 
     .hero-card {
       background: linear-gradient(180deg, #fff 0%, #f7f1fe 100%);
-    }
-
-    .image-card {
-      padding: 14px;
-      overflow: hidden;
-      background: linear-gradient(180deg, #ffffff 0%, #f8f4fd 100%);
-    }
-
-    .hero-image,
-    .leader-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 24px;
-    }
-
-    .hero-image {
-      min-height: 250px;
-    }
-
-    .leader-image {
-      min-height: 460px;
     }
 
     .hero-actions {
@@ -327,8 +288,7 @@
       margin-bottom: 20px;
     }
 
-    .credibility-strip,
-    .expertise-pill-list {
+    .credibility-strip {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
@@ -336,8 +296,7 @@
     }
 
     .credibility-strip span,
-    .expertise-pill,
-    .team-badge {
+    .pill {
       padding: 10px 14px;
       border-radius: 999px;
       background: var(--surface-2);
@@ -349,21 +308,29 @@
       align-items: center;
     }
 
-    .team-badge {
-      margin-bottom: 16px;
-    }
-
-    .team-focus-list {
+    .contact-list {
       padding-left: 18px;
       margin: 0;
     }
 
-    .team-focus-list li {
-      margin-bottom: 8px;
+    .contact-list li {
+      margin-bottom: 10px;
     }
 
-    .card-icon,
-    .role-icon {
+    .detail-grid {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .detail-card strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .icon-box,
+    .process-number {
       width: 48px;
       height: 48px;
       border-radius: 14px;
@@ -376,35 +343,63 @@
       box-shadow: inset 0 0 0 1px rgba(111, 66, 193, 0.08);
     }
 
-    .credibility-band {
-      background: rgba(255,255,255,0.75);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(6px);
-    }
-
-    .credibility-item {
-      text-align: center;
-      padding: 24px 14px;
-    }
-
-    .credibility-label {
-      font-size: .83rem;
-      color: var(--muted);
-      margin-bottom: .25rem;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-      font-weight: 700;
-    }
-
-    .credibility-value {
-      font-weight: 800;
-      color: var(--text);
-      font-size: 1.02rem;
-    }
-
     .section-soft {
       background: linear-gradient(180deg, rgba(255,255,255,0.40) 0%, rgba(242,236,248,0.85) 100%);
+    }
+
+    .contact-form-shell {
+      background: linear-gradient(180deg, #ffffff 0%, #faf7ff 100%);
+    }
+
+    form {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid #d9caef;
+      font: inherit;
+      color: var(--text);
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(111, 66, 193, 0.12);
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: 0.9rem;
     }
 
     .cta {
@@ -416,6 +411,10 @@
 
     .cta p {
       color: rgba(255,255,255,0.88);
+    }
+
+    .hipaa-note {
+      padding: 22px;
     }
 
     .hipaa-title {
@@ -448,10 +447,7 @@
     @media (max-width: 1080px) {
       .hero-grid,
       .two-grid,
-      .three-grid,
-      .four-grid,
-      .credibility-grid,
-      .future-grid {
+      .three-grid {
         grid-template-columns: 1fr 1fr;
       }
     }
@@ -482,21 +478,19 @@
 
       .hero-copy,
       .hero-card,
-      .leader-card,
-      .value-card,
-      .future-role-card,
-      .credibility-card,
+      .contact-card,
+      .process-card,
+      .contact-form-shell,
       .hipaa-note,
-      .cta {
+      .cta,
+      .detail-card {
         padding: 24px;
       }
 
       .hero-grid,
       .two-grid,
       .three-grid,
-      .four-grid,
-      .credibility-grid,
-      .future-grid {
+      .field-row {
         grid-template-columns: 1fr;
       }
 
@@ -507,16 +501,10 @@
       .hero {
         padding-top: 28px;
       }
-
-      .hero-image,
-      .leader-image {
-        min-height: 260px;
-      }
     }
   </style>
 </head>
 <body>
-
   <header>
     <div class="container nav">
       <a href="index.html" class="brand">
@@ -533,12 +521,12 @@
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="approach.html">Approach</a></li>
-          <li><a href="team.html" class="active">Team</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
       </nav>
 
-      <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+      <a class="btn btn-primary" href="#contact-form">Get in Touch</a>
     </div>
   </header>
 
@@ -546,166 +534,173 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">Leadership &amp; Team</span>
-          <h1>Experienced. Practical. Compliance-Driven.</h1>
+          <span class="eyebrow">Contact</span>
+          <h1>Let’s talk about the challenge behind the numbers.</h1>
           <p>
-            SM Practice Solutions is built to support real-world healthcare operations across providers,
-            coders, revenue cycle teams, and executive leadership.
+            If your organization is dealing with denials, coding inconsistency, workflow inefficiencies,
+            or documentation-related risk, start with a quick conversation. We help identify the most practical next step.
           </p>
+
           <div class="hero-actions">
-            <a href="contact.html" class="btn btn-primary">Schedule a Strategy Consultation</a>
-            <a href="about.html" class="btn btn-secondary">Learn More About Us</a>
+            <a class="btn btn-primary" href="#contact-form">Request a Consultation</a>
+            <a class="btn btn-secondary" href="mailto:info@smpracticesolutions.com">Email Directly</a>
           </div>
+
           <div class="credibility-strip">
             <span>Revenue integrity</span>
-            <span>Pro-fee coding</span>
-            <span>Education + operations</span>
-            <span>Sustainable improvement</span>
+            <span>Compliance support</span>
+            <span>Workflow consulting</span>
+            <span>Remote services</span>
           </div>
         </div>
 
         <aside class="hero-card">
-          <div class="image-card" style="margin-bottom:18px;">
-            <img
-              class="hero-image"
-              src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80"
-              alt="Healthcare professionals collaborating in a modern office"
-            />
-          </div>
-          <span class="eyebrow">What clients can expect</span>
-          <div class="two-grid" style="margin-top:18px;">
-            <div class="value-card">
-              <div class="card-icon">01</div>
-              <h3>Practical Leadership</h3>
-              <p>Built around real operational environments, not one-size-fits-all consulting templates.</p>
+          <span class="eyebrow">Quick Contact Details</span>
+          <h3 style="margin-top:18px; font-size:1.5rem;">Reach out directly</h3>
+          <p>
+            Start with a short message describing your organization, main challenge, and the kind of support you may need.
+            You can also request a free initial revenue integrity assessment.
+          </p>
+
+          <div class="detail-grid">
+            <div class="detail-card">
+              <strong>Email</strong>
+              <a href="mailto:info@smpracticesolutions.com">info@smpracticesolutions.com</a>
             </div>
-            <div class="value-card">
-              <div class="card-icon">02</div>
-              <h3>Compliance Focus</h3>
-              <p>Recommendations align with documentation integrity, audit readiness, and regulatory expectations.</p>
+            <div class="detail-card">
+              <strong>Phone</strong>
+              <a href="tel:9062758323">906-275-8323</a>
             </div>
-            <div class="value-card">
-              <div class="card-icon">03</div>
-              <h3>Operational Clarity</h3>
-              <p>Every engagement is designed to create usable next steps and stronger accountability.</p>
-            </div>
-            <div class="value-card">
-              <div class="card-icon">04</div>
-              <h3>Sustainable Support</h3>
-              <p>Improvement plans are built to hold over time, not just solve a short-term issue.</p>
+            <div class="detail-card">
+              <strong>Service Model</strong>
+              <span>Remote, HIPAA-conscious consulting support</span>
             </div>
           </div>
         </aside>
       </div>
     </section>
 
-    <section class="credibility-band">
-      <div class="container credibility-grid">
-        <div class="credibility-item">
-          <div class="credibility-label">Leadership Focus</div>
-          <div class="credibility-value">Revenue Integrity</div>
-        </div>
-        <div class="credibility-item">
-          <div class="credibility-label">Specialty</div>
-          <div class="credibility-value">Pro-Fee Coding</div>
-        </div>
-        <div class="credibility-item">
-          <div class="credibility-label">Approach</div>
-          <div class="credibility-value">Education + Operations</div>
-        </div>
-        <div class="credibility-item">
-          <div class="credibility-label">Goal</div>
-          <div class="credibility-value">Sustainable Improvement</div>
-        </div>
-      </div>
-    </section>
-
     <section class="section">
-      <div class="container two-grid" style="align-items:center;">
-        <div class="image-card">
-          <img
-            c
-          />
-        </div>
-
-        <div class="leader-card">
-          <div class="team-badge">Founder &amp; Principal Consultant</div>
-          <h2>Samantha Menara</h2>
-          <div class="small-note" style="font-size:15px; margin-bottom:16px;">
-            Revenue Integrity | Professional Fee Coding Leadership | Compliance | Education | Workflow Optimization
-          </div>
-
-          <p>
-            Samantha Menara leads SM Practice Solutions with a focus on helping healthcare organizations
-            address coding risk, documentation variation, preventable denials, workflow inefficiencies,
-            and broader revenue integrity challenges.
+      <div class="container two-grid">
+        <div class="contact-form-shell" id="contact-form">
+          <span class="eyebrow">Consultation Request</span>
+          <h2>Tell us what you need</h2>
+          <p class="lead" style="max-width:100%;">
+            Share a few details so we can better understand your challenge and the best place to start.
           </p>
 
-          <p>
-            Her work is grounded in healthcare operations and built around practical, measurable solutions that support providers,
-            coders, compliance teams, and leadership stakeholders.
-          </p>
+          <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+            <div class="field-row">
+              <div>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+              </div>
+              <div>
+                <label for="organization">Organization</label>
+                <input type="text" id="organization" name="organization" placeholder="Organization name">
+              </div>
+            </div>
 
-          <div class="two-grid" style="margin-top:20px;">
-            <div>
-              <h3>Core Expertise</h3>
-              <ul class="team-focus-list">
-                <li>Professional Fee Coding with Leadership</li>
-                <li>Revenue Integrity Strategy</li>
-                <li>Denials Root-Cause Review</li>
-                <li>Provider Documentation Alignment</li>
-                <li>Workflow Redesign</li>
-              </ul>
+            <div class="field-row">
+              <div>
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+              </div>
+              <div>
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Optional">
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div>
+                <label for="organization-type">Organization Type</label>
+                <select id="organization-type" name="organization_type">
+                  <option value="">Select one</option>
+                  <option>Independent Practice</option>
+                  <option>Physician Group</option>
+                  <option>Hospital-Employed Group</option>
+                  <option>Health System</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="challenge">Primary Challenge</label>
+                <select id="challenge" name="challenge">
+                  <option value="">Select one</option>
+                  <option>Denials</option>
+                  <option>Coding Accuracy</option>
+                  <option>Documentation</option>
+                  <option>Workflow Optimization</option>
+                  <option>Compliance Risk</option>
+                  <option>Revenue Integrity Review</option>
+                </select>
+              </div>
             </div>
 
             <div>
-              <h3>Credentials</h3>
-              <ul class="team-focus-list">
-                <li>CPC – Certified Professional Coder (AAPC)</li>
-                <li>CCA – Certified Coding Associate (AHIMA)</li>
-                <li>BA – Healthcare Management</li>
-                <li>AAB – Business Management</li>
-              </ul>
+              <label for="message">Tell us about your current challenge</label>
+              <textarea id="message" name="message" placeholder="Briefly describe the issue, specialties involved, timeline, or the type of support you may need."></textarea>
             </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%;">Submit Consultation Request</button>
+            <p class="form-note">
+              Please do not submit protected health information (PHI) through this form.
+            </p>
+          </form>
+        </div>
+
+        <div class="contact-card">
+          <span class="eyebrow">Helpful Details</span>
+          <h2>What to include</h2>
+          <p class="lead" style="max-width:100%;">
+            A few details help us understand your needs faster and guide the conversation more effectively.
+          </p>
+
+          <ul class="contact-list">
+            <li>Organization type such as practice, physician group, or health system</li>
+            <li>Main challenge such as denials, documentation, coding accuracy, or workflow</li>
+            <li>Specialties involved</li>
+            <li>Approximate timeline or urgency</li>
+            <li>Preferred contact method</li>
+          </ul>
+
+          <div class="credibility-strip" style="margin-top:24px;">
+            <span class="pill">Initial conversation</span>
+            <span class="pill">Problem assessment</span>
+            <span class="pill">Practical next steps</span>
           </div>
-        </div>
-      </div>
-
-      <div class="three-grid" style="margin-top:22px;">
-        <div class="value-card">
-          <h3>Practical Leadership</h3>
-          <p>Built around real operational environments, not one-size-fits-all consulting templates.</p>
-        </div>
-
-        <div class="value-card">
-          <h3>Compliance Focus</h3>
-          <p>Recommendations are designed with documentation integrity, audit readiness, and regulatory alignment in mind.</p>
-        </div>
-
-        <div class="value-card">
-          <h3>Operational Clarity</h3>
-          <p>Every engagement is intended to create usable next steps, clearer accountability, and sustainable follow-through.</p>
         </div>
       </div>
     </section>
 
     <section class="section section-soft">
       <div class="container">
-        <div style="text-align:center; margin-bottom:40px;">
-          <span class="eyebrow">How We Think About Team Support</span>
-          <h2>The right expertise, aligned to the right challenge</h2>
-          <p class="section-lead" style="margin:0 auto;">
-            As SM Practice Solutions grows, the team model is designed around the capabilities healthcare organizations most often need.
-          </p>
-        </div>
+        <div class="contact-card">
+          <div class="two-grid" style="align-items:center;">
+            <div>
+              <span class="eyebrow">Complimentary First-Step Review</span>
+              <h2>Request a free revenue integrity assessment</h2>
+              <p class="lead" style="max-width:100%;">
+                For organizations facing denials, coding variation, documentation concerns, or workflow inefficiencies,
+                we offer an initial review conversation to help identify likely problem areas and practical next steps.
+              </p>
+              <ul class="contact-list">
+                <li>Discuss your current challenge and operational concerns</li>
+                <li>Identify likely root-cause areas affecting performance</li>
+                <li>Recommend a practical starting point for improvement</li>
+              </ul>
+            </div>
 
-        <div class="expertise-pill-list" style="justify-content:center;">
-          <span class="expertise-pill">Revenue Integrity</span>
-          <span class="expertise-pill">Professional Fee Coding</span>
-          <span class="expertise-pill">Compliance Support</span>
-          <span class="expertise-pill">Provider Education</span>
-          <span class="expertise-pill">Workflow Optimization</span>
-          <span class="expertise-pill">Denials Strategy</span>
+            <div style="display:flex; justify-content:flex-end; align-items:center;">
+              <a
+                class="btn btn-primary"
+                href="mailto:info@smpracticesolutions.com?subject=Free%20Revenue%20Integrity%20Assessment%20Request"
+              >
+                Request Free Assessment
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -713,80 +708,37 @@
     <section class="section">
       <div class="container">
         <div style="text-align:center; margin-bottom:40px;">
-          <span class="eyebrow">Future Team Structure</span>
-          <h2>Built for scalable, specialized support</h2>
-          <p class="section-lead" style="margin:0 auto;">
-            These future roles reflect the type of focused expertise that will support client engagements as the firm expands.
+          <span class="eyebrow">Consultation Process</span>
+          <h2>What happens after you reach out</h2>
+          <p class="lead" style="margin:0 auto;">
+            Our goal is to quickly understand the situation and determine the right next step.
           </p>
         </div>
 
-        <div class="future-grid">
-          <div class="future-role-card">
-            <div class="role-icon">01</div>
-            <h3>Senior Revenue Integrity Consultant</h3>
-            <div class="small-note" style="font-size:15px; margin-bottom:12px;">
-              Professional Fee Coding | Audits | Compliance
-            </div>
+        <div class="three-grid">
+          <div class="process-card">
+            <div class="process-number">1</div>
+            <h3>Initial conversation</h3>
             <p>
-              Adds advanced expertise in specialty coding, audit response, education-based remediation,
-              and risk reduction to help organizations improve accuracy and reduce repeat denials.
+              We review your challenge and determine whether a targeted assessment or broader consulting engagement is appropriate.
             </p>
           </div>
 
-          <div class="future-role-card">
-            <div class="role-icon">02</div>
-            <h3>Manager of Coding Education</h3>
-            <div class="small-note" style="font-size:15px; margin-bottom:12px;">
-              Provider Education | Documentation Quality | Training Strategy
-            </div>
+          <div class="process-card">
+            <div class="process-number">2</div>
+            <h3>Problem assessment</h3>
             <p>
-              Supports provider and coder education initiatives designed to improve documentation quality,
-              reduce rework, and strengthen long-term performance.
+              If needed, we evaluate the issue more closely to understand the operational or documentation drivers behind it.
             </p>
           </div>
 
-          <div class="future-role-card">
-            <div class="role-icon">03</div>
-            <h3>Revenue Cycle Operations Consultant</h3>
-            <div class="small-note" style="font-size:15px; margin-bottom:12px;">
-              Workflow Design | Productivity | Denials Operations
-            </div>
+          <div class="process-card">
+            <div class="process-number">3</div>
+            <h3>Recommended next steps</h3>
             <p>
-              Focuses on workflow redesign, operational alignment, and throughput improvement to support accuracy,
-              efficiency, and sustainable performance.
+              We outline practical recommendations or engagement options tailored to your organization.
             </p>
           </div>
-
-          <div class="future-role-card">
-            <div class="role-icon">04</div>
-            <h3>Client Reporting &amp; Analytics Consultant</h3>
-            <div class="small-note" style="font-size:15px; margin-bottom:12px;">
-              Dashboarding | Trend Reporting | Executive Insight
-            </div>
-            <p>
-              Translates operational, coding, and denial data into leadership-ready reporting that supports clearer decision-making
-              and stronger accountability.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-soft">
-      <div class="container three-grid">
-        <div class="credibility-card">
-          <h3>Specialized Support</h3>
-          <p>Complex healthcare challenges often require more than one lens — coding, operations, compliance, and education all matter.</p>
-        </div>
-
-        <div class="credibility-card">
-          <h3>Aligned Execution</h3>
-          <p>The team structure is designed to support coordinated action, not disconnected recommendations.</p>
-        </div>
-
-        <div class="credibility-card">
-          <h3>Scalable Growth</h3>
-          <p>As client needs expand, the firm is positioned to grow with the expertise needed to support them well.</p>
         </div>
       </div>
     </section>
@@ -796,14 +748,15 @@
         <div class="cta">
           <div class="two-grid" style="align-items:center;">
             <div>
-              <span class="eyebrow" style="background: rgba(255,255,255,0.14); color:#fff;">Let’s Connect</span>
-              <h2 style="color:#fff; margin-top:18px;">Need support with coding, denials, compliance, or workflow performance?</h2>
+              <span class="eyebrow" style="background: rgba(255,255,255,0.14); color:#fff;">Start Here</span>
+              <h2 style="color:#fff; margin-top:18px;">Need help with coding, denials, compliance, or workflow performance?</h2>
               <p>
-                Reach out to discuss your current challenge and determine the right next step for your organization.
+                Reach out to discuss your current challenge or request a free initial revenue integrity assessment.
               </p>
             </div>
+
             <div style="display:flex; justify-content:flex-end; align-items:center;">
-              <a class="btn btn-secondary" href="contact.html">Schedule a Strategy Consultation</a>
+              <a class="btn btn-secondary" href="#contact-form">Request Consultation</a>
             </div>
           </div>
         </div>
@@ -815,8 +768,9 @@
         <div class="hipaa-note">
           <div class="hipaa-title">HIPAA-Compliant Remote Services</div>
           <p class="small-note" style="font-size:15px; margin:0;">
-            All services are HIPAA-compliant and provided remotely. Please do not submit protected health information (PHI)
-            through this website or by email. Secure workflows can be coordinated when needed.
+            All services are HIPAA-compliant and provided remotely.
+            Please do not submit protected health information (PHI) through this website or by email.
+            Secure workflows will be coordinated when necessary.
           </p>
         </div>
       </div>
@@ -832,12 +786,12 @@
           compliance-driven improvements in revenue performance.
         </div>
       </div>
+
       <div class="small-note">
         © 2026 SM Practice Solutions. All rights reserved.<br />
         HIPAA-conscious remote services. Do not submit PHI through this website.
       </div>
     </div>
   </footer>
-
 </body>
 </html>
